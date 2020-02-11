@@ -1,4 +1,4 @@
 # swap_cards
 
-Tinder-like cards swapping
+Tinder-like cards swiping
 
