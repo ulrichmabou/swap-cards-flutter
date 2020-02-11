@@ -27,12 +27,23 @@ class CardsLoader extends StatefulWidget {
 
 class _CardsLoaderState extends State<CardsLoader>
     with TickerProviderStateMixin {
-  int cardsNum = 10;
-  int stackNum = 5;
+  int cardsNum = 20;
+  int stackNum = 3;
   int leftCount = 0;
   int rightCount = 0;
 
   List<String> emojiBank = [
+    '😀 grinning',
+    '🐶 dog',
+    '🍏 green_apple',
+    '⚽️ soccer',
+    '🚗 car',
+    '⌚️ watch',
+    '❤️ heart',
+    '🏳️ white_flag',
+    '🌂 closed_umbrella',
+    '🌫 fog',
+    '🍽 fork',
     '😀 grinning',
     '🐶 dog',
     '🍏 green_apple',
@@ -101,13 +112,18 @@ class _CardsLoaderState extends State<CardsLoader>
                   minWidth: MediaQuery.of(context).size.width * 0.8,
                   minHeight: MediaQuery.of(context).size.width * 0.8,
                   cardBuilder: (context, index) => Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(125),
+                          ),
+                        ),
                         elevation: 10,
                         color: Color(0xFFD3F3EE),
                         child: Padding(
                           padding: const EdgeInsets.all(10),
                           child: Center(
                               child: Text(
-                            emojiBank[Random().nextInt(11)],
+                            emojiBank[Random().nextInt(21)],
                             style: kCardTextStyle,
                           )),
                         ),
