@@ -26,17 +26,17 @@ class _CardsLoaderState extends State<CardsLoader>
   int leftCount = 0;
   int rightCount = 0;
 
-  List<String> welcomeImages = [
-    "assets/welcome0.png",
-    "assets/welcome1.png",
-    "assets/welcome2.png",
-    "assets/welcome2.png",
-    "assets/welcome1.png",
-    "assets/welcome1.png",
-    "assets/welcome0.png",
-    "assets/welcome1.png",
-    "assets/welcome2.png",
-    "assets/welcome1.png",
+  List<String> emoji = [
+    '😀',
+    '😃',
+    '😄',
+    '😁',
+    '😆',
+    '😀',
+    '😃',
+    '😄',
+    '😁',
+    '😆',
   ];
 
   @override
@@ -51,7 +51,6 @@ class _CardsLoaderState extends State<CardsLoader>
         backgroundColor: Color(0xFFDDA448),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -90,24 +89,32 @@ class _CardsLoaderState extends State<CardsLoader>
                   totalNum: cardsNum,
                   stackNum: stackNum,
                   swipeEdge: 4.0,
-                  maxWidth: MediaQuery.of(context).size.width * 0.9,
-                  maxHeight: MediaQuery.of(context).size.width * 0.9,
-                  minWidth: MediaQuery.of(context).size.width * 0.8,
-                  minHeight: MediaQuery.of(context).size.width * 0.8,
+                  maxWidth: MediaQuery.of(context).size.width * 0.7,
+                  maxHeight: MediaQuery.of(context).size.width * 0.7,
+                  minWidth: MediaQuery.of(context).size.width * 0.5,
+                  minHeight: MediaQuery.of(context).size.width * 0.5,
                   cardBuilder: (context, index) => Card(
-                        child: Image.asset('${welcomeImages[index]}'),
+                        elevation: 10,
+                        color: Color(0xFFD3F3EE),
+                        child: Center(
+                            child: Text(
+                          emoji[index],
+                          style: TextStyle(fontSize: 80),
+                        )),
                       ),
                   swipeCompleteCallback:
                       (CardSwipeOrientation orientation, int index) {
                     if (orientation == CardSwipeOrientation.LEFT) {
                       setState(() {
                         leftCount++;
+                        print(emoji[index]);
                       });
                       print(
                           'User swipped left for card at index $index and the left count is $leftCount');
                     } else if (orientation == CardSwipeOrientation.RIGHT) {
                       setState(() {
                         rightCount++;
+                        print(emoji[index]);
                       });
                       print(
                           'User swipped right for card at index $index and the right count is $rightCount');
