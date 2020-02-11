@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 
 // constants
@@ -106,7 +107,7 @@ class _CardsLoaderState extends State<CardsLoader>
                           padding: const EdgeInsets.all(10),
                           child: Center(
                               child: Text(
-                            emojiBank[index],
+                            emojiBank[Random().nextInt(11)],
                             style: kCardTextStyle,
                           )),
                         ),
@@ -116,6 +117,7 @@ class _CardsLoaderState extends State<CardsLoader>
                     if (orientation == CardSwipeOrientation.LEFT) {
                       setState(() {
                         leftCount++;
+                        // this is not the same index as up!!!
                         print(emojiBank[index]);
                       });
                       print(
@@ -123,6 +125,7 @@ class _CardsLoaderState extends State<CardsLoader>
                     } else if (orientation == CardSwipeOrientation.RIGHT) {
                       setState(() {
                         rightCount++;
+                        // this is not the same index as up!!!
                         print(emojiBank[index]);
                       });
                       print(
